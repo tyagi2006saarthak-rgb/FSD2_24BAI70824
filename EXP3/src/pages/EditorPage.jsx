@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Edit3 } from 'lucide-react';
+import PostForm from '../components/PostForm';
+import PostList from '../components/PostList';
 
 const EditorPage = () => {
   const navigate = useNavigate();
@@ -22,6 +24,10 @@ const EditorPage = () => {
         <h2>Content Management</h2>
         <p className="text-muted">This page is accessible by users with the <code>admin</code> or <code>editor</code> roles.</p>
         <p>Article drafting, content modifications, and publishing tools would be located here.</p>
+        <div style={{ marginTop: '1rem' }}>
+          <PostForm />
+          <PostList />
+        </div>
       </div>
     </div>
   );

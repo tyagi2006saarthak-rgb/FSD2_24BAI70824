@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { PostsProvider } from './context/PostsContext';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import RoleProtectedRoute from './components/RoleProtectedRoute';
@@ -24,6 +25,7 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   return (
     <AuthProvider>
+      <PostsProvider>
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -61,6 +63,7 @@ function App() {
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>
+      </PostsProvider>
     </AuthProvider>
   );
 }

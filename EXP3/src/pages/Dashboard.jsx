@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { LogOut, ShieldCheck, UserCircle, Activity, ShieldAlert, Edit3, Eye } from 'lucide-react';
+import PostList from '../components/PostList';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -33,7 +34,7 @@ const Dashboard = () => {
           <ShieldCheck color="var(--primary)" size={32} />
           Secure Dashboard
         </h1>
-        <button className="btn" onClick={handleLogout} style={{ backgroundColor: 'rgba(255,255,255,0.1)', border: '1px solid var(--glass-border)' }}>
+        <button className="btn logout" onClick={handleLogout}>
           <LogOut size={18} />
           Logout
         </button>
@@ -63,6 +64,10 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
+      </div>
+
+      <div style={{ width: '100%', maxWidth: '800px' }}>
+        <PostList />
       </div>
 
       <div className="glass-panel" style={{ width: '100%', maxWidth: '800px', padding: '2rem', marginBottom: '2rem' }}>

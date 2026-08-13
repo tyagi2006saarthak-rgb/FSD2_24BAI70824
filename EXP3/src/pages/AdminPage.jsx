@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
+import PostList from '../components/PostList';
 
 const AdminPage = () => {
   const navigate = useNavigate();
@@ -22,6 +23,9 @@ const AdminPage = () => {
         <h2>Highly Sensitive Data</h2>
         <p className="text-muted">This page is only accessible by users with the <code>admin</code> role.</p>
         <p>System settings, user management, and destructive actions would be located here.</p>
+        <div style={{ marginTop: '1rem' }}>
+          <PostList />
+        </div>
       </div>
     </div>
   );
